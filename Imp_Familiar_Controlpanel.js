@@ -1,5 +1,8 @@
 //Creates a window with buttons to change certain token's image, and another button to toggle invisibility. 
 //No need to select the familiar's token. This was made for a warlock's imp familiar named Yor'sa Vol. Change text as necessary.
+
+//Dependencies: Combat Utility Belt to toggle invisibility.
+
 let tok = game.actors.getName("Yor'Sa Vol").getActiveTokens()[0]
 
 function toggleInv(tok) {
