@@ -15,7 +15,6 @@ let anlength = 1080;
 
 let scale = ray.distance / anlength;
 
-
 const data = {
   file: "modules/animated-spell-effects/spell-effects/lightning/lightning_blast_multicolour_RAY_01.webm",
   position: token.center,
