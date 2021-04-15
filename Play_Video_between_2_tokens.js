@@ -1,6 +1,7 @@
 //WIP
 //This is for playing videos between two tokens.
-//Specifically, for wide videos where DrawSpecialTowards isn't appropiate because it is a long static ray or something and you want the video to remain static on the canvas.
+//Specifically, for wide videos where DrawSpecialTowards isn't appropiate because it is a long static ray or something 
+//and you want the video to remain static on the canvas.
 //Blatantly copied ideas and code from Automated JB2A Animations. Check that module out, it's really good.
 
 //Dependencies: TokenMagic FX. Example video file from the Animated Spell Effects module.
