@@ -12,72 +12,59 @@ let targets = Array.from(game.user.targets);
 async function main(targets) {
 
     let count = 0;
-    let foo = false;
     let attacked = new Set([]);
-    
     
     let targetoptions = "";
     for (let t of targets) {
         targetoptions += `<option value=${t.id}>${t.name}</option>`;
     }
     let dialogTemplate = `
-    <h1> Choose target </h1>
+    <h1> Elige objetivo </h1>
     <div style="display:flex">
     <div><select id="tar">${targetoptions}</select>
     </div>
     </div>`;
-    //console.log(targetoptions)
     let d = new Dialog({
         title: "Steel Wind Strike",
         content: dialogTemplate,
         buttons: {
             next: {
-                label: `Attack`,
+                label: `Siguiente`,
                 callback: (html) => {
                     let tar = canvas.tokens.get(html.find("#tar")[0].value);
                     if (attacked.has(tar)) {
-                        ui.notifications.warn("You have already attacked this token");
+                        ui.notifications.warn("Ya has atacado a este objetivo");
                         d.render(true);
                         return;
                     }
+                    
                     game.user.targets = new Set([tar]);
                     attacked.add(tar);
                     item.roll();
                     count += 1;
                     console.log(count);
-                    foo = true;
                     
                     ChatMessage.create({
                         speaker: {
                             alias: token.name
                         },
-                        content: `<p>Attack number ${count} to ${tar.name}!</p>`,
+                        content: `<p>¡Ataque nº ${count} para ${tar.name}!</p>`,
                     });
-                       
-                    if (count > 4) {
-                        
-                        Hooks.once('midi-qol.RollComplete', () => {
-                            game.user.targets = new Set(targets);
-                        });
-                    } else {
-                        Hooks.once('midi-qol.RollComplete', () => {
-                            foo = false;
-                            d.render(true)});
-                    }
+                    
+                    Hooks.once('midi-qol.RollComplete', () => {
+                        game.user.targets = new Set(targets);
+                        if (count < 5) {
+                            d.render(true);
+                        }
+                    });
                 }
-            }
-        },
-        close: () =>  {
-            if (!foo) {
-                game.user.targets = new Set(targets);
             }
         }
     }).render(true);
-
 }
 
 if (targets.length != 0) {
     main(targets);
 } else {
-    ui.notifications.info("Choose at least 1 target");
+    ui.notifications.info("Elige al menos un objetivo");
 }
