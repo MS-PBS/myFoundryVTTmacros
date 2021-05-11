@@ -7,22 +7,26 @@ function calchip(hor, ver) {
 }
 
 let dialogEditor = new Dialog({
-   title: 'Calculate Hypotenuse',
+   title: 'Calcular hipotenusa',
    content: `<form>
             <div class="form-group">
-                <label for="num">Horizontal Distance</label>
-                <input id="hor" name="num" type="number" min="0" ></input>
-                <label for="num">Vertical Distance</label>
-                <input id="ver" name="num" type="number" min="0" ></input>
+                <div>
+                <label for="num">Distancia Horizontal</label>
+                <input id="hor" name="num" type="number" min="0" style="width:100px;float:below" ></input>
+                </div><div>
+                <label for="num">Distancia Vertical</label>
+                <input id="ver" name="num" type="number" min="0" style="width:100px;float:below"></input>
+                </div>
             </div>
         </form>`,
    buttons: {
       calculate: {
-         label:'Calculate Hypotenuse',
-         callback: async (html) => {
+         label:'Calcular Hipotenusa',
+         callback: (html) => {
             let hor = Number(html.find("#hor")[0].value);
             let ver = Number(html.find("#ver")[0].value);
-            ui.notifications.info('Distance: ' + calchip(hor,ver) + ' feet');
+            //console.log(hor,ver, ' pies.');
+            ui.notifications.info('Distancia: ' + calchip(hor,ver) + ' pies');
             dialogEditor.render(true)
          }
       },
