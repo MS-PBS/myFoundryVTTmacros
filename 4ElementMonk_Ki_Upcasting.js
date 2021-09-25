@@ -4,6 +4,7 @@
 //but the spells themselves have no damage rolls. All upcasting and ki calculation is done via the macro, so the spells themselves
 //also don't have a ki cost in their details.
 
+//After the GM has rolled the saves, a dialog will show up, where you can choose if you want to spend extra ki before rolling the damage.
 //It will calculate the max ki that you can spend (based on your available ki and monk level) and won't let you spend an illegal amount (it will give you a warning).
 
 //I've configured it to take evasion into account if it's a dex save. The target must have an item named "Evasion".
