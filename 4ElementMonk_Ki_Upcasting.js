@@ -8,7 +8,7 @@
 //It will calculate the max ki that you can spend (based on your available ki and monk level) and won't let you spend an illegal amount (it will give you a warning).
 
 //I've configured it to take evasion into account if it's a dex save. The target must have an item named "Evasion".
-//Dependencies: Midi-QoL.
+//Dependencies: Midi-QoL, DiceSoNice (line 76 makes Midi wait until DSN's animation is done. Neat, huh?)
 
 
 let kiItemName = "Ki"; //Name of Ki item in the character sheet
