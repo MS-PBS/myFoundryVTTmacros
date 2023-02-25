@@ -1,3 +1,5 @@
+//NO LONGER WORKS ON FOUNDRY V10
+
 // Allows swapping between two different .png images.
 // Token sides should have "a" and "b" at the end of the name like "name-a.png" and "name-b.png".
 // If you have a different ending, change aName and bName respectively.
